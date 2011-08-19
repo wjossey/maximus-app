@@ -1,13 +1,18 @@
-development:
+defaults: &defaults
   host: localhost
+
+development:
+  <<: *defaults
   database: party_girl_development
 
 test:
-  host: localhost
+  <<: *defaults
   database: party_girl_test
 
 # set these environment variables on your prod server
 production:
+  <<: *defaults
+  uri: <% ENV['MONGOLAB_URL'] %>
   host: <%= ENV['MONGOID_HOST'] %>
   port: <%= ENV['MONGOID_PORT'] %>
   username: <%= ENV['MONGOID_USERNAME'] %>
