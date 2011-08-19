@@ -1,0 +1,28 @@
+<div>
+  <table id="incidents">
+    <thead>
+    <tr>
+      <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @incidents.each_with_index do |incident, idx| %>
+      <tr>
+        <td><%= incident.message %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    oTable = $('#incidents').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers",
+      "aaSorting": [[4, "desc"]],
+      "aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
+      "iDisplayLength": -1
+    });
+  } );
+</script>
