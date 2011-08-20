@@ -1,40 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
-gem 'em-http-request', :git => 'https://github.com/igrigorik/em-http-request.git'
-gem 'em-synchrony', :git => 'http://github.com/igrigorik/em-synchrony.git'
-gem 'girl_friday', :git => 'http://github.com/mperham/girl_friday.git'
+gem 'em-http-request'
+gem 'em-synchrony'
+gem 'girl_friday'
 gem 'mongoid', '~> 2.1'
+gem 'mongoid_rails_migrations', '0.0.13'
 gem 'bson_ext', '~> 1.3'
 gem 'thin'
 gem 'inherited_resources'
 gem 'formtastic', '~> 1.2.3'
 gem 'tabs_on_rails'
 gem 'jquery-rails'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
