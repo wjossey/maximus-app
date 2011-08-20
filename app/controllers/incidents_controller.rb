@@ -1,6 +1,6 @@
 class IncidentsController < ApplicationController
   inherit_resources
-  before_filter :find_incidents, :flatten_incidents, :except => :index
+  before_filter :find_incidents, :flatten_incidents, :only => :find
 
   def index
     @incidents = Incident.page(1).per(25)
@@ -12,11 +12,11 @@ class IncidentsController < ApplicationController
 
 
   def find_incidents
-    Rails.logger.info "Direction: #{params["sSortDir_0"].to_s}"
     @length = (params["iDisplayLength"] || 25).to_i
     @start = (params["iDisplayStart"] || 0).to_i
-    @incidents = Incident.page(page).per(@length).order_by([:_id, params["sSortDir_0"].to_s])
     @count = Incident.count
+    @length = @count if @length == -1
+    @incidents = Incident.page(page).per(@length).order_by([data_table_col_to_field(params["iSortCol_0"].to_i), params["sSortDir_0"].to_s])
   end
 
   def flatten_incidents
@@ -25,6 +25,12 @@ class IncidentsController < ApplicationController
 
   def page
     (@start / @length) + 1
+  end
+
+  @@find_data_table_cols = [:_id, :message]
+
+  def data_table_col_to_field(idx)
+    @@find_data_table_cols[idx]
   end
 
 end

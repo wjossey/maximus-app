@@ -2,6 +2,7 @@
   <table id="incidents">
     <thead>
     <tr>
+      <th>ID</th>
       <th>Message</th>
     </tr>
     </thead>
@@ -16,11 +17,10 @@
       "bProcessing": true,
       "bJQueryUI": true,
       "sPaginationType": "full_numbers",
-      "aaSorting": [[4, "desc"]],
       "aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
       "iDisplayLength": 25,
       "bServerSide": true,
-      "sAjaxSource": 'incidents/find'
+      "sAjaxSource": '/incidents/find'
     });
   } );
 </script>
