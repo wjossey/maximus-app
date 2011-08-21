@@ -19,7 +19,6 @@ class IncidentsController < ApplicationController
     @count = @incident_group.incidents.count
     @length = @count if @length == -1
     @incidents = Incident.page(page).per(@length).where(:incident_group_id => params[:incident_group_id]).order_by([data_table_col_to_field(params["iSortCol_0"].to_i), params["sSortDir_0"].to_s])
-    Rails.logger.info "Incidents:::"
   end
 
   def flatten_incidents
