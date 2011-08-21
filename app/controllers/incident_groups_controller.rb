@@ -10,6 +10,10 @@ class IncidentGroupsController < ApplicationController
     render :json => {:aaData => @incident_groups, :iTotalRecords => @count, :iTotalDisplayRecords => @count}
   end
 
+  def show
+    redirect_to incident_group_incidents_url(:incident_group_id => params[:id])
+  end
+
 
   def find_incident_groups
     @length = (params["iDisplayLength"] || 25).to_i
@@ -20,7 +24,7 @@ class IncidentGroupsController < ApplicationController
   end
 
   def flatten_incident_groups
-    @incident_groups = @incident_groups.map {|incident_group| ["<a href='http://www.google.com'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s]}
+    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s]}
   end
 
   def page

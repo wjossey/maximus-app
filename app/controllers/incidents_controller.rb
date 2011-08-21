@@ -2,6 +2,7 @@ class IncidentsController < ApplicationController
   inherit_resources
   before_filter :find_incident_group, :only => [:find, :index]
   before_filter :find_incidents, :flatten_incidents, :only => :find
+  belongs_to :incident_group
 
   def index
     @incidents = Incident.page(1).per(25)
