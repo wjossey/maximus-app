@@ -22,9 +22,9 @@ PartyGirl::Application.routes.draw do
         get :find
       end
     end
-
   end
 
+  match '/' => "incident_groups#index"
 
   # Sample resource route with options:
   #   resources :products do
