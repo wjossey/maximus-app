@@ -22,7 +22,7 @@ class IncidentsController < ApplicationController
   end
 
   def flatten_incidents
-    @incidents = @incidents.map {|incident| [incident._id.to_s, incident.message.to_s]}
+    @incidents = @incidents.map {|incident| [incident._id.to_s, incident.message.to_s, incident.occurred_at]}
   end
 
   def find_incident_group

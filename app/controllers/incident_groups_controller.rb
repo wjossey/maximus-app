@@ -24,7 +24,7 @@ class IncidentGroupsController < ApplicationController
   end
 
   def flatten_incident_groups
-    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s]}
+    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.incidents.first.occurred_at]}
   end
 
   def page
