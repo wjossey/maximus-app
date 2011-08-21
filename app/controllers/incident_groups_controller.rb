@@ -1,5 +1,6 @@
 class IncidentGroupsController < ApplicationController
   inherit_resources
+  before_filter :authenticate_user!
   before_filter :find_incident_groups, :flatten_incident_groups, :only => :find
 
   def find
@@ -20,7 +21,7 @@ class IncidentGroupsController < ApplicationController
   end
 
   def flatten_incident_groups
-    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.incidents.first.occurred_at]}
+    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.first_occurrence]}
   end
 
   def page

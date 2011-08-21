@@ -30,12 +30,18 @@ GEM
     activesupport (3.0.10)
     addressable (2.2.6)
     arel (2.0.10)
+    bcrypt-ruby (2.1.4)
+    bcrypt-ruby (2.1.4-java)
     bson (1.3.1)
     bson (1.3.1-java)
     bson_ext (1.3.1)
     builder (2.1.2)
     daemons (1.1.4)
     dalli (1.0.5)
+    devise (1.4.2)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
     em-http-request (0.3.0)
       addressable (>= 2.0.0)
       escape_utils
@@ -79,6 +85,7 @@ GEM
       bundler (>= 1.0.0)
       rails (>= 3.0.0)
       railties (>= 3.0.0)
+    orm_adapter (0.0.5)
     polyglot (0.3.2)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -112,6 +119,8 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    warden (1.0.5)
+      rack (>= 1.0)
 
 PLATFORMS
   java
@@ -120,6 +129,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext (~> 1.3)
   dalli
+  devise
   em-http-request
   em-synchrony
   formtastic (~> 1.2.3)
