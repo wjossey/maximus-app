@@ -7,6 +7,6 @@ class Incident
   field :file, type: String
   field :host_name, type: String
   field :url, type: String
-  embedded_in :incident_group
+  belongs_to :incident_group
 
 end
