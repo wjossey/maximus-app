@@ -4,10 +4,6 @@ class IncidentsController < ApplicationController
   before_filter :find_incidents, :flatten_incidents, :only => :find
   belongs_to :incident_group
 
-  def index
-    @incidents = Incident.page(1).per(25)
-  end
-
   def find
     render :json => {:aaData => @incidents, :iTotalRecords => @count, :iTotalDisplayRecords => @count}
   end

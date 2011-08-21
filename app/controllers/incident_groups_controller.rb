@@ -2,10 +2,6 @@ class IncidentGroupsController < ApplicationController
   inherit_resources
   before_filter :find_incident_groups, :flatten_incident_groups, :only => :find
 
-  def index
-    @incident_groups = IncidentGroup.page(1).per(25)
-  end
-
   def find
     render :json => {:aaData => @incident_groups, :iTotalRecords => @count, :iTotalDisplayRecords => @count}
   end
