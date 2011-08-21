@@ -1,0 +1,26 @@
+<div>
+  <table id="incident_groups">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    oTable = $('#incident_groups').dataTable({
+      "bProcessing": true,
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers",
+      "aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
+      "iDisplayLength": 25,
+      "bServerSide": true,
+      "sAjaxSource": '/incident_groups/find'
+    });
+  } );
+</script>
