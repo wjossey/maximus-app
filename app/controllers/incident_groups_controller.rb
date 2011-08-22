@@ -21,14 +21,14 @@ class IncidentGroupsController < ApplicationController
   end
 
   def flatten_incident_groups
-    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.first_occurrence]}
+    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.first_occurrence, incident_group.incident_count]}
   end
 
   def page
     (@start / @length) + 1
   end
 
-  @@find_data_table_cols = [:_id, :group_title, :first_occurrence]
+  @@find_data_table_cols = [:_id, :group_title, :first_occurrence, :count]
 
   def data_table_col_to_field(idx)
     @@find_data_table_cols[idx]

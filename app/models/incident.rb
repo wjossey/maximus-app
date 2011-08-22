@@ -9,4 +9,6 @@ class Incident
   field :url, type: String
   belongs_to :incident_group, index: true
 
+  after_create :update_group_count
+
 end
