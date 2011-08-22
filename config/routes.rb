@@ -14,6 +14,9 @@ PartyGirl::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  root :to => "incident_groups#index"
+
   resources :incident_groups do
     collection do
       get :find
