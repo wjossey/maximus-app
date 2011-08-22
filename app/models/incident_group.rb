@@ -4,6 +4,7 @@ class IncidentGroup
   field :first_occurrence, type: DateTime, default: -> { Time.now.utc }, index: true
   has_many :incidents, :dependent => :delete
 
+
   def incident_count
     Rails.cache.fetch(cache_key) do
       self.incidents.count
@@ -12,7 +13,7 @@ class IncidentGroup
 
   def update_group_count
     count = Rails.cache.read(cache_key)
-    count = count.nil ? self.incidents.count : count + 1
+    count = count.nil? ? self.incidents.count : count + 1
     Rails.cache.write(cache_key, count)
   end
 
