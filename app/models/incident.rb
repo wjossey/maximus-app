@@ -11,4 +11,8 @@ class Incident
 
   after_create :update_group_count
 
+  def update_group_count
+    self.incident_group.update_group_count
+  end
+
 end
