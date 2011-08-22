@@ -28,7 +28,7 @@ class IncidentGroupsController < ApplicationController
     (@start / @length) + 1
   end
 
-  @@find_data_table_cols = [:_id, :group_title]
+  @@find_data_table_cols = [:_id, :group_title, :first_occurrence]
 
   def data_table_col_to_field(idx)
     @@find_data_table_cols[idx]
