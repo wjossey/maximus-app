@@ -1,5 +1,6 @@
 class IncidentsController < ApplicationController
   inherit_resources
+  before_filter :authenticate_user!
   before_filter :find_incident_group, :only => [:find, :index]
   before_filter :find_incidents, :flatten_incidents, :only => :find
   belongs_to :incident_group

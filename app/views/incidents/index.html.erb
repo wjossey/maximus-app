@@ -21,7 +21,7 @@
       "aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
       "iDisplayLength": 25,
       "bServerSide": true,
-      "sAjaxSource": '/incident_groups/<%= @incident_group._id %>/incidents/find'
+      "sAjaxSource": '/users/<%= params[:user_id] %>/projects/<%= params[:project_id] %>/incident_groups/<%= @incident_group._id %>/incidents/find'
     });
   } );
 </script>

@@ -1,4 +1,5 @@
-<%= ENV["RAILS_ENV"] %>:
+---
+production:
   error_collector:
     capture_source: true
     enabled: true

@@ -1,0 +1,8 @@
+<%= link_to('Logout', destroy_user_session_url, :method => :delete) %>
+
+<div>
+  <h3>All projects</h3>
+  <% @projects.each do |project| %>
+    <div>Project::: <%= link_to(user_project_url(current_user, project)) %></div>
+  <% end %>
+</div>

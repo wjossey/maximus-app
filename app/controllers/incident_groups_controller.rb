@@ -8,7 +8,8 @@ class IncidentGroupsController < ApplicationController
   end
 
   def show
-    redirect_to incident_group_incidents_url(:incident_group_id => params[:id])
+    Rails.logger.info "IN the show method, redirecting now..."
+    redirect_to user_project_incident_group_incidents_url(current_user, :project_id => params[:project_id], :incident_group_id => params[:id])
   end
 
 
@@ -21,7 +22,7 @@ class IncidentGroupsController < ApplicationController
   end
 
   def flatten_incident_groups
-    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{incident_group_incidents_url(:incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.first_occurrence, incident_group.incident_count]}
+    @incident_groups = @incident_groups.map {|incident_group| ["<a href='#{user_project_incident_group_incidents_url(:user_id => params[:user_id], :project_id => params[:project_id], :incident_group_id => incident_group.id)}'>#{incident_group._id.to_s}</a>", incident_group.group_title.to_s, incident_group.first_occurrence, incident_group.incident_count]}
   end
 
   def page
